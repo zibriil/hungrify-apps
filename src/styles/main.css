@@ -31,13 +31,13 @@ main {
 
 a {
   text-decoration: none;
-  display: block;
 }
 
 a,
 input,
 button,
 textarea {
+  display: inline-block;
   padding: 0.75rem;
   outline-color: var(--thirty-color);
 }
@@ -163,11 +163,9 @@ app-bar .app-bar__navigation ul li {
 
 app-bar .app-bar__navigation ul li a {
   width: 100%;
-  display: inline-block;
-  text-decoration: none;
   color: #333;
   padding: 0.8rem;
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
   font-weight: 500;
 }
 
@@ -320,11 +318,17 @@ Content
   padding: 1.3rem;
 }
 
-.restaurants .restaurant-item__content .restaurant-item__title > a {
+.restaurants .restaurant-item__content .restaurant-item__title a {
+  margin-top: 0.5rem;
   font-size: 1.3rem;
-  /* margin-top: 0.8rem; */
-  padding: 0.6rem 0;
+  padding: 0;
+  min-width: 44px;
+  min-height: 44px;
   color: var(--main-color);
+
+  margin: 0;
+  display: flex;
+  align-items: center;
 }
 
 .restaurants .restaurant-item__content .restaurant-item__description {
