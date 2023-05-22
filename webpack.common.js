@@ -7,8 +7,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 // eslint-disable-next-line import/order
 const TerserWebpackPlugin = require('terser-webpack-plugin');
-const BundleAnalyzerPlugin =
-  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin =
+//   require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
@@ -101,6 +101,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
     }),
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
   ],
 };
