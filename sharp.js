@@ -12,19 +12,20 @@ if (!fs.existsSync(destination)) {
 fs.readdirSync(target).forEach(image => {
   sharp(`${target}/${image}`)
     .resize(1000)
+    .webp()
     .toFile(
       path.resolve(
         __dirname,
-        `${destination}/${image.split('.').slice(0, -1).join('.')}-large.jpg`
+        `${destination}/${image.split('.').slice(0, -1).join('.')}-large.webp`
       )
     );
-
   sharp(`${target}/${image}`)
     .resize(480)
+    .webp()
     .toFile(
       path.resolve(
         __dirname,
-        `${destination}/${image.split('.').slice(0, -1).join('.')}-small.jpg`
+        `${destination}/${image.split('.').slice(0, -1).join('.')}-small.webp`
       )
     );
 });
