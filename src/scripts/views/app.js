@@ -1,4 +1,5 @@
 import DrawerInitiator from '../utils/drawer-initiator';
+import CONFIG from '../globals/config';
 import UrlParser from '../routes/url-parser';
 import routes from '../routes/routes';
 
@@ -21,6 +22,7 @@ class App {
   async renderPage() {
     const url = UrlParser.parseActiveUrlWithCombiner();
     const page = routes[url];
+    const cacheIsExists = await this.cacheCheckExistence(CONFIG.CACHE_NAME);
     this._content.innerHTML = await page.render();
     const skipLinkElement = document.querySelector('#skipLink');
     const mainContent = document.querySelector('#mainContent');
@@ -29,10 +31,26 @@ class App {
       mainContent.focus();
     });
 
-    if (window.navigator.onLine) {
+    if (window.navigator.onLine || cacheIsExists) {
       await page.afterRender();
     } else {
       mainContent.innerHTML += '<h3 class="disconnected">No internet :(</h3>';
+    }
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  async cacheCheckExistence(cacheName) {
+    try {
+      const cacheExists = await caches.has(cacheName);
+      if (cacheExists) {
+        console.log(`Cache "${cacheName}" exists`);
+      } else {
+        console.log(`Cache "${cacheName}" does not exist`);
+      }
+      return cacheExists;
+    } catch (error) {
+      console.error('Error checking cache existence:', error);
+      return false;
     }
   }
 }
