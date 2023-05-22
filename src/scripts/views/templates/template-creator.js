@@ -9,7 +9,7 @@ const createRestaurantItemTemplate = restaurant => `
         restaurant.rating || '-'
       }</span></p>
       <img
-      src="${CONFIG.BASE_IMAGE_URL_SMALL + restaurant.pictureId}"
+      data-src="${CONFIG.BASE_IMAGE_URL_SMALL + restaurant.pictureId}"
       alt="${restaurant.name || '-'}"
       class="skeleton restaurant-item__thumbnail lazyload"
       />

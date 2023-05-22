@@ -1,13 +1,16 @@
 import DataSource from '../../data/data-source';
 import { createRestaurantItemTemplate } from '../templates/template-creator';
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
 const RestaurantList = {
   async render() {
     return `
       <div class="hero">
           <picture>
-            <source media="(min-width: 768px)" srcset="./images/heros/hero-image_1-large.jpg" class="hero__bg lazyload" type="image/jpeg">
-            <img src="./images/heros/hero-image_1-small.jpg" class="hero__bg lazyload" alt="Hero Background">
+            <source media="(min-width: 768px)" data-srcset="./images/heros/hero-image_1-large.webp" class="hero__bg lazyload">
+            <source media="(min-width: 320px)" data-srcset="./images/heros/hero-image_1-small.webp" class="hero__bg lazyload">
+            <img data-src="./images/heros/hero-image_1.jpg" class="hero__bg lazyload" alt="Hero Background">
           </picture>
           <div class="hero__content">
             <h1>Welcome to Hungrify Apps</h1>
@@ -34,6 +37,7 @@ const RestaurantList = {
     });
 
     const restaurants = await DataSource.restaurantList();
+    console.log(restaurants);
     restaurants.forEach(restaurant => {
       loader.classList.remove('loader');
       restaurantsContainer.innerHTML +=
