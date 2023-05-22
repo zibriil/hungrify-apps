@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start-dev": "webpack serve --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js && node sharp.js",
+    "build": "webpack --config webpack.prod.js",
     "serve": "http-server dist --port 9000",
     "build-serve": "npm run build  && node sharp.js && npm run serve",
+    "build-image": "node sharp.js",
     "test": "karma start",
     "e2e": "codeceptjs run --steps"
   },
