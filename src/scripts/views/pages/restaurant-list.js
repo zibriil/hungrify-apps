@@ -37,7 +37,6 @@ const RestaurantList = {
     });
 
     const restaurants = await DataSource.restaurantList();
-    console.log(restaurants);
     restaurants.forEach(restaurant => {
       loader.classList.remove('loader');
       restaurantsContainer.innerHTML +=
