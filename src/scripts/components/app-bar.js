@@ -16,14 +16,14 @@ class AppBar extends HTMLElement {
           </button>
         </div>
         <div class="app-bar__brand">
-            <h1>Hungrify Apps</h1>
+            <h1>Hungry App</h1>
         </div>
         <nav id="drawer" class="app-bar__navigation">
           <ul>
             <li><a href="/">Home</a></li>
             <li><a href="#/favorite">Favorite</a></li>
             <li>
-              <a href="https://www.linkedin.com/in/em-izrofi-043/" target="_blank">About Us</a>
+              <a href="https://www.linkedin.com/in/m-izrofi/" target="_blank">About Us</a>
             </li>
           </ul>
         </nav>
