@@ -6,7 +6,7 @@ class FootBar extends HTMLElement {
   render() {
     this.innerHTML = `
         <footer class="footer">
-            <p class="copyright">Copyright &copy; 2023 - Hungrify Apps by Em</p>
+            <p class="copyright">Copyright &copy; 2023 - Hungry App | All rights reserved.</p>
         </footer>
         `;
   }
